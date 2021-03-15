@@ -3,6 +3,17 @@ interface IInputs {
   size?: any;
   color?: any;
   variant?: any;
+  disabled?: any;
+  name?: any;
+  value?: any;
+  error?: boolean;
+  onChange?: (e: any) => void;
+}
+
+interface IForm {
+  InitialValue: Array<object>;
+  validateOnChange: boolean;
+  validate: (fieldValues?: any) => boolean | undefined;
 }
 
 interface IButton extends IInputs {
@@ -10,4 +21,14 @@ interface IButton extends IInputs {
   onClick?: () => any;
 }
 
-export type { IInputs, IButton };
+interface IMultSelect extends IInputs {
+  items: Array<IMultSelectEnum>;
+}
+
+interface IMultSelectEnum {
+  id?: string;
+  title?: string;
+  value?: string;
+}
+
+export type { IInputs, IButton, IMultSelect, IMultSelectEnum, IForm };

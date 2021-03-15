@@ -1,0 +1,42 @@
+function cpfMask(value) {
+  return value
+    .replace(/\D/g, "")
+    .replace(/(\d{3})(\d)/, "$1.$2")
+    .replace(/(\d{3})(\d)/, "$1.$2")
+    .replace(/(\d{3})(\d{1,2})/, "$1-$2")
+    .replace(/(-\d{2})\d+?$/, "$1");
+}
+
+function cnpjMask(value) {
+  return value
+    .replace(/\D/g, "")
+    .replace(/(\d{2})(\d)/, "$1.$2")
+    .replace(/(\d{3})(\d)/, "$1.$2")
+    .replace(/(\d{3})(\d)/, "$1/$2")
+    .replace(/(\d{4})(\d)/, "$1-$2")
+    .replace(/(-\d{2})\d+?$/, "$1");
+}
+
+function validateMask(value) {
+  return value.replace(/\W/g, "").replace(/(\W{4})(\W{4})(\W{4})/, "$1-$2-$3");
+}
+
+export {};
+
+function phoneMask(value) {
+  return value
+    .replace(/\D/g, "")
+    .replace(/(\d{2})(\d)/, "($1) $2")
+    .replace(/(\d{4})(\d)/, "$1-$2")
+    .replace(/(\d{4})-(\d)(\d{4})/, "$1$2-$3")
+    .replace(/(-\d{4})\d+?$/, "$1");
+}
+
+function cepMask(value) {
+  return value
+    .replace(/\D/g, "")
+    .replace(/(\d{5})(\d)/, "$1-$2")
+    .replace(/(-\d{3})\d+?$/, "$1");
+}
+
+export { cpfMask, cnpjMask, phoneMask, cepMask, validateMask };

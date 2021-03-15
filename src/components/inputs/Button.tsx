@@ -1,8 +1,7 @@
-//styles and material-ui components
 import { makeStyles, CircularProgress } from "@material-ui/core";
 import ButtonComponent from "@material-ui/core/Button";
 import { blue } from "@material-ui/core/colors";
-import { IButton } from "../../interfaces/inputs";
+import { IButton } from "../../interfaces/inputs/Index";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -23,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Button({
+const Button: React.FC<IButton> = ({
   size,
   color,
   variant,
@@ -31,8 +30,7 @@ export default function Button({
   onClick,
   loading,
   ...rest
-}: IButton) {
-  //custom classes
+}) => {
   const classes = useStyles();
 
   return (
@@ -54,4 +52,6 @@ export default function Button({
       </div>
     </div>
   );
-}
+};
+
+export default Button;
